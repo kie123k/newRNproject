@@ -22,6 +22,7 @@ import {
   Button,
   ImageBackground,
 } from 'react-native';
+import SwipeMain from './comp/SwipeMain';
 
 const feedData = [
   {
@@ -145,11 +146,41 @@ const StoryData = [
     id: 0,
     user_icon:
       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg/375px-IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg',
-    user_id: 'iu_1',
+    user_id: 'iu_11',
+  },
+  {
+    id: 1,
+    user_icon:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg/375px-IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg',
+    user_id: 'iu_12',
+  },
+  {
+    id: 2,
+    user_icon:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg/375px-IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg',
+    user_id: 'iu_13',
+  },
+  {
+    id: 3,
+    user_icon:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg/375px-IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg',
+    user_id: 'iu_14',
+  },
+  {
+    id: 4,
+    user_icon:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg/375px-IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg',
+    user_id: 'iu_15',
+  },
+  {
+    id: 5,
+    user_icon:
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg/375px-IU_posing_for_Marie_Claire_Korea_March_2022_issue_03.jpg',
+    user_id: 'iu_16',
   },
 ];
 const App: () => Node = () => {
-  const postimgListMemo = React.memo(Postimg);
+  // const postimgListMemo = React.memo(Postimg);
   const [cimgId, setTagVisibile] = useState('');
   const toggleTag = img => {
     console.log('new' + img.imgid);
@@ -238,8 +269,17 @@ const App: () => Node = () => {
       <Text>{story.user_id}</Text>
     </View>
   );
+  const StorySection = () => (
+    <FlatList
+      horizontal
+      style={styles.stories}
+      data={StoryData}
+      renderItem={renderStory}
+      keyExtractor={item => item.user_id}
+    />
+  );
   return (
-    <SafeAreaView style={styles.container}>
+    <SwipeMain style={styles.container}>
       <View style={styles.topFrame}>
         <View style={styles.top}>
           <View style={styles.logo}>
@@ -255,23 +295,17 @@ const App: () => Node = () => {
             <Text>msg</Text>
           </View>
         </View>
-        <FlatList
-          horizontal
-          style={styles.stories}
-          data={StoryData}
-          renderItem={renderStory}
-          keyExtractor={item => item.user_id}
-        />
       </View>
       <View style={styles.posts}>
         <FlatList
           data={feedData}
+          ListHeaderComponent={<StorySection />}
           renderItem={renderItem}
           keyExtractor={item => item.post_id}
         />
       </View>
       <View style={styles.bot} />
-    </SafeAreaView>
+    </SwipeMain>
   );
 };
 
@@ -282,7 +316,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   topFrame: {
-    height: 150,
+    height: 50,
   },
   top: {
     height: 50,
@@ -306,6 +340,7 @@ const styles = StyleSheet.create({
   },
   stories: {
     height: 100,
+    width: width,
     backgroundColor: 'powderblue',
     paddingTop: 5,
     paddingBottom: 5,
