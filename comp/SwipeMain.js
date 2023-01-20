@@ -8,7 +8,7 @@ class SwipeMain extends Component {
     this.state = {
       myText: "I'm ready to get swiped!",
       gestureName: 'none',
-      backgroundColor: '#fff',
+      backgroundColor: '#000',
     };
   }
 
