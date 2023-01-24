@@ -12,7 +12,7 @@ class FeedList extends Component {
     const width = Dimensions.get('screen').width;
     const renderItem = ({item}) => <Feed feed={item} />;
     const Feed = ({feed}) => (
-      <View style={([styles.post], {height: feed.ratio * width + 130})}>
+      <View style={([styles.post], {height: feed.ratio * width + 180})}>
         <View style={styles.post_user}>
           <Image source={{uri: feed.user_icon}} style={styles.post_user_icon} />
           <Text>{feed.user_id}</Text>
