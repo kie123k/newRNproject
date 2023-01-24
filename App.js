@@ -8,14 +8,14 @@
 
 import type {Node} from 'react';
 import {SafeAreaView} from 'react-native';
-import FeedPage from './comp/FeedPage';
+import MainPage from './comp/MainPage/MainPage';
 import React from 'react';
 import styles from './styles/styles';
 
 const App: () => Node = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <FeedPage />
+      <MainPage />
     </SafeAreaView>
   );
 };

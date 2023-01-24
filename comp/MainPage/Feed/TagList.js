@@ -6,21 +6,19 @@ import Tag from './Tag';
 
 
 function TagList({img}) {
-  const [cimgId, setTagVisibile] = useState('');
-  const toggleTag = img => {
-    console.log('new' + img.imgid);
-    console.log('pre' + cimgId);
-    let a = img.imgid === cimgId ? '' : img.imgid;
-    console.log('newone' + a);
+  const [opacity, setTagVisibile] = useState(0);
+  const toggleTag = d => {
+    console.log(d);
+    let a = d == 0 ? 100 : 0;
+    console.log(a);
     setTagVisibile(a);
-    console.log('now' + cimgId);
   };
     
   return(
     <TouchableOpacity
-      style={{flex: 1, opacity: cimgId == img.imgid ? 0 : 100}}
+      style={{flex: 1, opacity: opacity}}
       onPress={() => {
-        toggleTag(img);
+        toggleTag(opacity);
       }}>
       {img.tags.map((tag, index) => (
         <Tag key={index} tag={tag} />

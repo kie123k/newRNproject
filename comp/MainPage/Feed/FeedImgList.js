@@ -1,15 +1,12 @@
-import {Component, useState} from 'react';
+import {Component} from 'react';
 import React from 'react';
-import {
-  Dimensions,
-  View,
-  ImageBackground,
-  TouchableOpacity,
-} from 'react-native';
+import {Dimensions, View, ImageBackground} from 'react-native';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import styles from '../../../styles/styles';
 import TagList from './TagList';
 
+import { ScrollView } from 'react-native'
+import { ScrollView as GestureHandlerScrollView } from 'react-native-gesture-handler'
 
 class FeedImgList extends Component {
   render() {
@@ -25,18 +22,17 @@ class FeedImgList extends Component {
             style={
               ([styles.post_img2], {height: width * img.ratio, width: width})
             }>
-              {/* <Tags img={img} /> */}
             <TagList img={img} />
           </ImageBackground>
         </View>
       </View>
-    );
-  // const Tags = ({img}) => (
-  //   
-  // );
+    ); 
     return (
       <SwiperFlatList
         showPagination
+        paginationDefaultColor={'white'}
+        paginationActiveColor={'black'}
+        nestedScrollEnabled
         data={data}
         style={[styles.post_img]}
         renderItem={renderPage}
