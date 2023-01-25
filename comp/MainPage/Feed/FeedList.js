@@ -18,6 +18,9 @@ class FeedList extends Component {
           <Text>{feed.user_id}</Text>
         </View>
         <FeedImgList data={feed.imgs} />
+        <View style={styles.post_bottom}>
+          <Text>dd</Text>
+        </View>
         <View style={styles.post_content}>
           <Text>{feed.contents}</Text>
         </View>
@@ -36,6 +39,7 @@ class FeedList extends Component {
     return (
       <View style={styles.posts}>
         <FlatList
+          nestedScrollEnabled
           data={feedData}
           ListHeaderComponent={<StorySection data={StoryData}/>}
           renderItem={renderItem}

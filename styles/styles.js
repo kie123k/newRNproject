@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
   },
   post: {
     backgroundColor: 'red',
+    justifyContent: 'flex-start',
   },
   post_user: {
     height: 50,
@@ -87,6 +88,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     resizeMode: 'contain',
+  },
+  post_bottom: {
+    height: 50,
+    backgroundColor: 'blue',
   },
   post_content: {
     height: 40,

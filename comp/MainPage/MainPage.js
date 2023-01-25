@@ -8,8 +8,8 @@
 
 import React from 'react';
 import {KeyboardAvoidingView} from 'react-native';
-import { ScrollView } from 'react-native'
-import { ScrollView as GestureHandlerScrollView } from 'react-native-gesture-handler'
+import { View, ScrollView } from 'react-native'
+// import {ScrollView} from 'react-native-gesture-handler';
 import styles from '../../styles/styles';
 import FeedPage from './FeedPage';
 import MsgPage from './MsgPage';
@@ -17,14 +17,14 @@ import MsgPage from './MsgPage';
 function MainPage() {
   return (
     <KeyboardAvoidingView style={styles.container}>
-      <GestureHandlerScrollView
-        horizontal
-        pagingEnabled
-        disableScrollViewPanResponder
+      <View
+        // horizontal
+        // pagingEnabled
+        // nestedScrollEnabled
         style={styles.container}>
         <FeedPage />
-        <MsgPage />
-      </GestureHandlerScrollView>
+        {/* <MsgPage /> */}
+      </View>
     </KeyboardAvoidingView>
   );
 }

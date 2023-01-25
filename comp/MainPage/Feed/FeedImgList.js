@@ -1,12 +1,13 @@
 import {Component} from 'react';
 import React from 'react';
-import {Dimensions, View, ImageBackground} from 'react-native';
+import {Dimensions, View, ImageBackground, FlatList} from 'react-native';
 import {SwiperFlatList} from 'react-native-swiper-flatlist';
 import styles from '../../../styles/styles';
 import TagList from './TagList';
 
-import { ScrollView } from 'react-native'
-import { ScrollView as GestureHandlerScrollView } from 'react-native-gesture-handler'
+// import { ScrollView } from 'react-native'
+// import {FlatList} from 'react-native-gesture-handler';
+
 
 class FeedImgList extends Component {
   render() {
@@ -28,7 +29,9 @@ class FeedImgList extends Component {
       </View>
     ); 
     return (
-      <SwiperFlatList
+      <FlatList
+        horizontal
+        pagingEnabled
         showPagination
         paginationDefaultColor={'white'}
         paginationActiveColor={'black'}

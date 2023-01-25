@@ -1,7 +1,9 @@
 import {Component} from 'react';
 import React from 'react';
-import {FlatList, View, Image, Text} from 'react-native';
+import {View, Image, Text, ScrollView, FlatList} from 'react-native';
+// import {ScrollView} from 'react-native-gesture-handler';
 import styles from '../../../styles/styles';
+// import {FlatList} from 'react-native-gesture-handler';
 
 class StorySection extends Component {
   render() {
@@ -14,13 +16,16 @@ class StorySection extends Component {
       </View>
     );
     return (
-      <FlatList
-        horizontal
-        style={styles.stories}
-        data={data}
-        renderItem={renderStory}
-        keyExtractor={item => item.user_id}
-      />
+      <ScrollView>
+        <FlatList
+          nestedScrollEnabled
+          horizontal
+          style={styles.stories}
+          data={data}
+          renderItem={renderStory}
+          keyExtractor={item => item.user_id}
+        />
+      </ScrollView>
     );
   }
 }
