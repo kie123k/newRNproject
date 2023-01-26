@@ -8,30 +8,36 @@
 
 import React from 'react';
 import {KeyboardAvoidingView} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {ScrollView} from 'react-native-gesturnpe-handler';
 import styles from '../../styles/styles';
 import FeedPage from './FeedPage';
-import MsgPage from './MsgPage';
-import {createDrawerNavigator} from '@react-navigation/drawer';
-const drawer = createDrawerNavigator();
 
-function MainPage() {
+
+
+// const Tab = createBottomTabNavigator();
+export default function MainPage() {
+
   return (
     <KeyboardAvoidingView style={styles.container}>
-      <NavigationContainer>
-        <drawer.Navigator
-          initialRouteName="Feed"
-          // horizontal
-          // pagingEnabled
-          // nestedScrollEnabled
-          style={styles.container}>
-          <drawer.Screen name="Feed" component={FeedPage} />
-          <drawer.Screen name="Msg" component={MsgPage} />
-        </drawer.Navigator>
-      </NavigationContainer>
+      {/* <Tab.Navigator>
+        <Tab.Screen
+          name='tabFeed'
+          component={FeedPage} 
+          options={{headerShown: false}}/>
+        <Tab.Screen
+          name='tabMsg'
+          component={MsgPage} 
+          options={{headerShown: false}}/>
+      </Tab.Navigator> */}
+      {/* <TabView
+        navigationState={{ index, routes }}
+        renderTabBar={() => null}
+        renderScene={renderScene}
+        onIndexChange={setIndex}
+        style={styles.container}>
+      </TabView> */}
+      <FeedPage />
     </KeyboardAvoidingView>
   );
 }
  
-export default MainPage;
+// export default MainPage;

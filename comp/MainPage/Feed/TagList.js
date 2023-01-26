@@ -13,7 +13,6 @@ function TagList({img}) {
     console.log(a);
     setTagVisibile(a);
   };
-    
   return(
     <TouchableOpacity
       style={{flex: 1, opacity: opacity}}

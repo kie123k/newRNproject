@@ -1,7 +1,8 @@
 import {Component} from 'react';
 import React from 'react';
 import {Dimensions, View, ImageBackground, FlatList} from 'react-native';
-import {SwiperFlatList} from 'react-native-swiper-flatlist';
+// import {SwiperFlatList} from 'react-native-swiper-flatlist';
+import {ScrollView as ScrollView2} from 'react-native-gesture-handler';
 import styles from '../../../styles/styles';
 import TagList from './TagList';
 
@@ -30,14 +31,14 @@ class FeedImgList extends Component {
     ); 
     return (
       <FlatList
+        renderScrollComponent={p => <ScrollView2 {...p} />}
+        showPagination
         horizontal
         pagingEnabled
-        showPagination
+        nestedScrollEnabled
         paginationDefaultColor={'white'}
         paginationActiveColor={'black'}
-        nestedScrollEnabled
         data={data}
-        style={[styles.post_img]}
         renderItem={renderPage}
         keyExtractor={item => item.seq}
       />

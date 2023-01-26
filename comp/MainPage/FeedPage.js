@@ -7,23 +7,69 @@
  */
 
 import React from 'react';
-import {Component} from 'react';
 import {SafeAreaView} from 'react-native';
 import styles from '../../styles/styles';
 import TopFrame from './TopFrame';
-import BotFrame from './BotFrame';
 import FeedList from './Feed/FeedList';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import MsgPage from './MsgPage';
 
-class FeedPage extends Component {
-  render(){
-    return (
-      <SafeAreaView style={styles.container}>
-        <TopFrame />
-        <FeedList />
-        <BotFrame />
-      </SafeAreaView>
-    );
-  }
+
+const Feedpage = () => {
+  const botTab = createBottomTabNavigator();
+  const stack = createMaterialTopTabNavigator();
+  const Home = () => (
+    <>
+      <TopFrame />
+      <FeedList />
+    </>
+  )
+  const Reel = () => (
+    <></>
+  )
+  const Search = () => (
+    <></>
+  )
+  const Shop = () => (
+    <></>
+  )
+  const Info = () => (
+    <></>
+  )
+  const Tabs = () => (
+    <SafeAreaView style={styles.container}>
+      <botTab.Navigator>
+        <botTab.Screen
+          name="Home"
+          component={Home}
+          options={{headerShown: false}}
+        />
+        <botTab.Screen
+          name="Search"
+          component={Search}
+          options={{headerShown: false}}/>
+        <botTab.Screen name="Reel" component={Reel} />
+        <botTab.Screen name="Shop" component={Shop} />
+        <botTab.Screen
+          name="Info"
+          component={Info}
+          options={{headerShown: false}}/>
+      </botTab.Navigator>
+    </SafeAreaView>
+  )
+  return (
+    <SafeAreaView style={styles.container}>
+      <stack.Navigator tabBar={() => null}>
+        {/* <stack.Screen
+          name="Tabs"
+          component={Tabs}
+          options={{headerShown: false}}
+        /> */}
+        <stack.Screen name="Msg" component={MsgPage} />
+      </stack.Navigator>
+    </SafeAreaView>
+  );
 }
  
-export default FeedPage;
+export default Feedpage;

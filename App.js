@@ -46,17 +46,6 @@ const Auth = () => {
     </Stack.Navigator>
   );
 };
-const Main= () => {
-  return (
-    <Stack.Navigator initialRouteName="Login">
-    <Stack.Screen
-      name="Main2"
-      component={MainPage}
-      options={{headerShown: false}}
-      />
-    </Stack.Navigator>
-  )
-}
 
 const App: () => Node = () => {
   return (
@@ -79,7 +68,7 @@ const App: () => Node = () => {
           />
           <Stack.Screen 
             name="Main" 
-            component={Main} 
+            component={MainPage} 
             options={{headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>

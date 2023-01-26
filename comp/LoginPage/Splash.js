@@ -17,8 +17,8 @@ const Splash = ({navigation}) => {
       //Check if user_id is set or not
       //If not then send for Authentication
       //else send to Home Screen
-      AsyncStorage.getItem('id').then(value =>
-        navigation.replace(value === null ? 'Auth' : 'Main'),
+      AsyncStorage.getItem('isLogin').then(value =>
+        navigation.replace(value !== 'true' ? 'Auth' : 'Main'),
       );
     }, 3000);
   }, []);

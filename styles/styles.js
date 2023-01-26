@@ -31,6 +31,22 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
   },
+  btn_like: {
+    flex: 1,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+  },
+  btn_msg: {
+    flex: 1,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+  },
   stories: {
     height: 100,
     width: width,
@@ -117,7 +133,28 @@ const styles = StyleSheet.create({
   },
   bot: {
     height: 50,
+    flexDirection:'row',
     backgroundColor: 'gray',
+  },
+  bot_home: {
+    flex:1,
+    backgroundColor: 'red',
+  },
+  bot_search: {
+    flex:1,
+    backgroundColor: 'blue',
+  },
+  bot_reels: {
+    flex:1,
+    backgroundColor: 'red',
+  },
+  bot_shop: {
+    flex:1,
+    backgroundColor: 'blue',
+  },
+  bot_userinfo: {
+    flex:1,
+    backgroundColor: 'red',
   },
 });
 

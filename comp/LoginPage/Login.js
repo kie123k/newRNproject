@@ -41,11 +41,14 @@ const Login = ({navigation}) => {
       console.log(response.data[0].id);
       await AsyncStorage.setItem('id', response.data[0].id);
       await AsyncStorage.setItem('nick_nm', response.data[0].nick_nm);
+      await AsyncStorage.setItem('isLogin','true');
+      navigation.replace('Main')
     } catch {
       console.log("error");
       setErrortext('Please check your email id or password');
     } finally {
       setLoading(false);
+      console.log( "id" + await AsyncStorage.getItem('isLogin'));
       console.log( "id" + await AsyncStorage.getItem('id'));
       console.log( "id" + await AsyncStorage.getItem('nick_nm'));
     }
